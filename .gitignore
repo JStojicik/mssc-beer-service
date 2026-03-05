@@ -140,3 +140,14 @@ Desktop.ini
 .eslintcache
 /.idea/
 
+target/mssc-beer-service-0.0.1.jar.original
+target/classes/application.properties
+target/maven-archiver/pom.properties
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/surefire-reports/com.springframework.msscbeerservice.MsscBeerServiceApplicationTests.txt
+target/surefire-reports/com.springframework.msscbeerservice.web.controller.BeerControllerTest.txt
+target/surefire-reports/TEST-com.springframework.msscbeerservice.MsscBeerServiceApplicationTests.xml
+target/surefire-reports/TEST-com.springframework.msscbeerservice.web.controller.BeerControllerTest.xml
