@@ -1,1 +1,1 @@
-sample readme file
+sample readme file for the mssc-beer-service project
