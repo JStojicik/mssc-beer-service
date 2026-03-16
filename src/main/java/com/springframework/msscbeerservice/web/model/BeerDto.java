@@ -1,6 +1,7 @@
 package com.springframework.msscbeerservice.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
@@ -9,8 +10,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonSerialize;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -22,6 +26,7 @@ public class BeerDto {
     static final long serialVersionUID = -5815566940065181210L;
 
     @Null
+    @JsonProperty("beerId")
     private UUID id;
 
     @Null
@@ -42,7 +47,7 @@ public class BeerDto {
     private BeerStyleEnum beerStyle;
 
     @NotNull
-    private Long upc;
+    private String upc;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     @Positive

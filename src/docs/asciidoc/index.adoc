@@ -1,0 +1,76 @@
+= SFG Brewery Order Service Docs
+Jovica Stojicik;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:snippets: {snippets}
+
+Sample application demonstrating how to use Spring REST Docs with JUnit 5.
+
+== Get Beer By ID
+
+Documentation for the `GET /api/v1/beer/{id}` endpoint.
+
+*Request using cURL:*
+include::{snippets}/get-beer-by-id/curl-request.adoc[]
+
+*Request using HTTPie:*
+include::{snippets}/get-beer-by-id/httpie-request.adoc[]
+
+*HTTP request:*
+include::{snippets}/get-beer-by-id/http-request.adoc[]
+
+*HTTP response:*
+include::{snippets}/get-beer-by-id/http-response.adoc[]
+
+*Request body:*
+include::{snippets}/get-beer-by-id/request-body.adoc[]
+
+*Response body:*
+include::{snippets}/get-beer-by-id/response-body.adoc[]
+
+
+== Save New Beer
+
+Documentation for the `POST /api/v1/beer` endpoint.
+
+*Request using cURL:*
+include::{snippets}/save-new-beer/curl-request.adoc[]
+
+*Request using HTTPie:*
+include::{snippets}/save-new-beer/httpie-request.adoc[]
+
+*HTTP request:*
+include::{snippets}/save-new-beer/http-request.adoc[]
+
+*HTTP response:*
+include::{snippets}/save-new-beer/http-response.adoc[]
+
+*Request body:*
+include::{snippets}/save-new-beer/request-body.adoc[]
+
+*Response body:*
+include::{snippets}/save-new-beer/response-body.adoc[]
+
+
+== Update Beer By ID
+
+Documentation for the `PUT /api/v1/beer/{id}` endpoint.
+
+*Request using cURL:*
+include::{snippets}/update-beer-by-id/curl-request.adoc[]
+
+*Request using HTTPie:*
+include::{snippets}/update-beer-by-id/httpie-request.adoc[]
+
+*HTTP request:*
+include::{snippets}/update-beer-by-id/http-request.adoc[]
+
+*HTTP response:*
+include::{snippets}/update-beer-by-id/http-response.adoc[]
+
+*Request body:*
+include::{snippets}/update-beer-by-id/request-body.adoc[]
+
+*Response body:*
+include::{snippets}/update-beer-by-id/response-body.adoc[]
