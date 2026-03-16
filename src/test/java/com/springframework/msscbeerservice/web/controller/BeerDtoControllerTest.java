@@ -40,7 +40,7 @@ class BeerDtoControllerTest {
     ObjectMapper objectMapper;
 
     @MockitoBean
-    BeerService beerService; 
+    BeerServiceImpl beerService;
 
     MockMvc mockMvc;
 
