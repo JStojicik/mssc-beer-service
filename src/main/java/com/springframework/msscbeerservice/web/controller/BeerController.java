@@ -1,10 +1,12 @@
 package com.springframework.msscbeerservice.web.controller;
 
-import com.springframework.msscbeerservice.services.BeerService;
 import com.springframework.msscbeerservice.services.BeerServiceImpl;
 import com.springframework.msscbeerservice.web.model.BeerDto;
-import lombok.AllArgsConstructor;
+import com.springframework.msscbeerservice.web.model.BeerPagedList;
+import com.springframework.msscbeerservice.web.model.BeerStyleEnum;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,10 +21,22 @@ import java.util.UUID;
 @RestController
 @RequiredArgsConstructor
 public class BeerController {
+    private static final Integer DEFAULT_PAGE_NUMBER = 0;
+    private static final Integer DEFAULT_PAGE_SIZE = 25;
 
     private final BeerServiceImpl beerService;
 
 
+    @GetMapping(produces = "application/json")
+    public ResponseEntity<BeerPagedList> listBeers(@RequestParam(value = "pageNumber", required = false, defaultValue = "0") @Positive Integer pageNumber,
+                                                   @RequestParam(value = "pageSize", required = false, defaultValue = "25") @Positive Integer pageSize,
+                                                   @RequestParam(value = "beerName", required = false) String beerName,
+                                                   @RequestParam(value = "beerStyle", required = false) BeerStyleEnum beerStyle) {
+        pageNumber = pageNumber < 0 ? DEFAULT_PAGE_NUMBER : pageNumber;
+        pageSize = pageSize < 1 ? DEFAULT_PAGE_SIZE : pageSize;
+        BeerPagedList beerList = beerService.listBeers(beerName, beerStyle, PageRequest.of(pageNumber, pageSize));
+        return new ResponseEntity<>(beerList, HttpStatus.OK);
+    }
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId){
 
