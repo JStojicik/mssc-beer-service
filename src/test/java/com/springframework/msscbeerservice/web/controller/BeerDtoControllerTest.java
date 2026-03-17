@@ -1,6 +1,5 @@
 package com.springframework.msscbeerservice.web.controller;
 
-import com.springframework.msscbeerservice.services.BeerService;
 import com.springframework.msscbeerservice.services.BeerServiceImpl;
 import com.springframework.msscbeerservice.web.model.BeerDto;
 import com.springframework.msscbeerservice.web.model.BeerStyleEnum;
@@ -23,6 +22,7 @@ import java.util.UUID;
 
 import static com.springframework.msscbeerservice.bootstrap.BeerLoader.BEER_1_UPC;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
@@ -54,7 +54,7 @@ class BeerDtoControllerTest {
 
     @Test
     void getBeerById() throws Exception {
-        given(beerService.getById(any())).willReturn(getValidBeerDto());
+        given(beerService.getById(any(), anyBoolean())).willReturn(getValidBeerDto());
         mockMvc.perform(get("/api/v1/beer/{id}", UUID.randomUUID())
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
